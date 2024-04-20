@@ -55,7 +55,7 @@
                             <a href="/dashboard-automative" class="dropdown-item border-radius-md">
                                 <span class="ps-3">Automotive</span>
                             </a>
-                            <a href="/dashboard-smart-home" class="dropdown-item border-radius-md">
+                            <a href="/main-dashboard" class="dropdown-item border-radius-md">
                                 <span class="ps-3">Smart Home</span>
                             </a>
                             <a href="/dashboard-virtual-default" class="dropdown-item border-radius-md">
@@ -249,8 +249,8 @@
                         <a href="/dashboard-automative" class="dropdown-item border-radius-md">
                         Automotive
                         </a>
-                        <a href="/dashboard-smart-home" class="dropdown-item border-radius-md">
-                        Smart Home
+                        <a href="/main-dashboard" class="dropdown-item border-radius-md">
+                        Main Dashboard
                         </a>
                         <a href="/dashboard-virtual-default" class="dropdown-item border-radius-md">
                         Virtual Reality

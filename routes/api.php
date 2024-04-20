@@ -21,3 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/waterpool-status-api', [WaterpoolController::class, 'getToken']);
+
+Route::post('/states', [\App\Http\Controllers\StateLogController::class, 'store']);

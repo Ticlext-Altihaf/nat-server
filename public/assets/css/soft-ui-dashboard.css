@@ -72,6 +72,9 @@
     scroll-behavior: smooth;
   }
 }
+.bg-color{
+  background-color: #344767 !important;
+}
 
 body {
   margin: 0;
@@ -10274,11 +10277,11 @@ fieldset:disabled .btn {
 }
 
 .bg-warning {
-  background-color: #fbcf33 !important;
+  background-color: #fcd34d !important;
 }
 
 .bg-danger {
-  background-color: #ea0606 !important;
+  background-color: #ef4444 !important;
 }
 
 .bg-light {
@@ -19306,8 +19309,8 @@ fieldset:disabled .btn {
 
 .btn-primary:hover,
 .btn.bg-gradient-primary:hover {
-  background-color: #cb0c9f;
-  border-color: #cb0c9f;
+  background-color: #343267;
+  border-color: #343267;
 }
 
 .btn-primary .btn.bg-outline-primary,
@@ -20511,7 +20514,7 @@ label,
 }
 
 .bg-gradient-primary {
-  background-image: linear-gradient(310deg, #7928CA 0%, #FF0080 100%);
+  background-color: #344767;
 }
 
 .bg-gradient-secondary {
@@ -21375,6 +21378,7 @@ hr.horizontal.gray-light {
 .navbar-vertical.navbar-expand-xs .navbar-nav .nav-link .sidenav-normal,
 .navbar-vertical.navbar-expand-xs .navbar-nav .nav-link i {
   pointer-events: none;
+  
 }
 
 .navbar-vertical.navbar-expand-xs .navbar-nav .nav-item {
@@ -21473,7 +21477,7 @@ hr.horizontal.gray-light {
   .navbar-vertical.navbar-expand-sm .navbar-nav .nav-link .sidenav-mini-icon,
   .navbar-vertical.navbar-expand-sm .navbar-nav .nav-link .sidenav-normal,
   .navbar-vertical.navbar-expand-sm .navbar-nav .nav-link i {
-    pointer-events: none;
+    pointer-events: none !important;
   }
 
   .navbar-vertical.navbar-expand-sm .navbar-nav .nav-item {
@@ -21574,6 +21578,7 @@ hr.horizontal.gray-light {
   .navbar-vertical.navbar-expand-md .navbar-nav .nav-link .sidenav-normal,
   .navbar-vertical.navbar-expand-md .navbar-nav .nav-link i {
     pointer-events: none;
+
   }
 
   .navbar-vertical.navbar-expand-md .navbar-nav .nav-item {
@@ -22059,8 +22064,8 @@ hr.horizontal.gray-light {
 }
 
 .navbar-vertical .navbar-nav>.nav-item .nav-link.active {
-  color: #344767;
-  background-color: #fff;
+  color: #fff ;
+  background-color: #344767;
 }
 
 .navbar-vertical .navbar-nav>.nav-item .nav-link.active .icon {
@@ -22128,7 +22133,7 @@ hr.horizontal.gray-light {
   background-color: transparent;
   box-shadow: none;
   color: rgba(58, 65, 111, 0.5);
-  margin-left: 1.35rem;
+  margin-left:0px;
 }
 
 .navbar-vertical .navbar-nav .nav-item .collapse .nav .nav-item .nav-link:before,
@@ -22142,6 +22147,7 @@ hr.horizontal.gray-light {
   width: 5px;
   border-radius: 1.5rem;
   background: rgba(58, 65, 111, 0.5);
+  display: none !important;
 }
 
 .navbar-vertical .navbar-nav .nav-item .collapse .nav .nav-item .nav-link.active,
@@ -30464,12 +30470,12 @@ Github: https://github.com/fiduswriter/Simple-DataTables
 }
 
 .dataTable-wrapper .dataTable-bottom .dataTable-pagination .dataTable-pagination-list li a:hover {
-  background: #e9ecef;
+  background: #343267;
 }
 
 .dataTable-wrapper .dataTable-bottom .dataTable-pagination .dataTable-pagination-list .active a {
   background: transparent;
-  background-image: linear-gradient(310deg, #7928CA 0%, #FF0080 100%);
+  background-color:   #344767;
   box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.09), 0 2px 3px -1px rgba(0, 0, 0, 0.07);
   color: #fff;
   border: none;
@@ -30477,8 +30483,7 @@ Github: https://github.com/fiduswriter/Simple-DataTables
 }
 
 .dataTable-wrapper .dataTable-bottom .dataTable-pagination .dataTable-pagination-list .active a:hover {
-  background-image: linear-gradient(310deg, #7928CA 0%, #FF0080 100%);
-}
+  background-color:#343267;
 
 .dataTable-wrapper.no-footer .dataTable-container {
   border-bottom: 0;

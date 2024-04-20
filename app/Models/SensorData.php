@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SensorData extends Model
 {
-    use HasFactory; 
+    use HasFactory;
     protected $table = 'sensor_data';
 
     protected $fillable = [

@@ -1,387 +1,207 @@
+
 @extends('user_type.auth', ['parentFolder' => 'dashboards', 'childFolder' => 'none'])
 
 @section('content')
     <div class="row mt-4">
-        <div class="col-lg-6 ms-auto">
-            <div class="card">
-                <div class="card-header pb-0 p-3">
-                    <div class="d-flex align-items-center">
-                        <h6 class="mb-0">Consumption by Adult's
-                            Pool</h6>
-                        <button type="button"
-                            class="btn btn-icon-only btn-rounded btn-outline-secondary mb-0 ms-2 btn-sm d-flex
-                            align-items-center justify-content-center ms-auto"
-                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Lihat kelayakan kolam">
-                            <i class="fas fa-info"></i> </button>
-                    </div>
-                </div>
-                <div class="card-body p-3">
-                    <div class="row">
-                        <div class="col-5 text-center">
-                            <div class="chart">
-                                <canvas id="chart-consumption" cslass="chart-canvas" height="197"></canvas>
-                            </div>
-                            <h4 class="font-weight-bold mt-n8">
-                                <img src="{{ asset('images/good.jpg') }}" alt="baik">
-                                <h6 class="d-block text-sm">
-                                    <span class="highlight-background" style="background-color: #d2fcd2; display: inline-block; padding: 5px; border-radius: 5px;">
-                                        <span class="text-sm bold" style="color: #30C873;">Good</span>
-                                    </span>
-                                </h6>
-                            </h4>
-                        </div>
-                        <div class="col-7">
-                            <div class="table-responsive">
-                                <table class="table align-items-center mb-0">
-                                    <tbody>
-                                        <td>
-                                            <div class="d-flex px-2 py-0">
-                                                <span class="badge bg-success me-3"> </span>
 
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <h6 class="mb-0 text-sm">Temperature</h6>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="align-right text-end text-sm">
-                                            <span class="text-xs font-weight-bold">{{ $temperature['value'] }} {{ $temperature['unit'] }}</span>
-                                        </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-0">
-                                                    <span class="badge bg-success me-3"> </span>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">PH</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="align-right text-end text-sm">
-                                                <span class="text-xs font-weight-bold">{{ $ph['value'] }} {{ $ph['unit'] }}</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-0">
-                                                    <span class="badge bg-success me-3"> </span>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Salt</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="align-right text-end text-sm">
-                                                <span class="text-xs font-weight-bold">{{ $salt['value'] }} {{ $salt['unit'] }}</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-0">
-                                                    <span class="badge bg-success me-3"> </span>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Sanitation (ORP)</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="align-right text-end text-sm">
-                                                <span class="text-xs font-weight-bold">{{ $orp['value'] }} {{ $orp['unit'] }}</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-0">
-                                                    <span class="badge bg-success me-3"> </span>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Conductivity</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="align-right text-end text-sm">
-                                                <span class="text-xs font-weight-bold">{{ $conductivity['value'] }} {{ $conductivity['unit'] }}</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-0">
-                                                    <span class="badge bg-success me-3"> </span>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">TDS</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="align-right text-end text-sm">
-                                                <span class="text-xs font-weight-bold">{{ $tds['value'] }} {{ $tds['unit'] }}</span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="col-lg-6 ms-auto">
-            <div class="card">
-                <div class="card-header pb-0 p-3">
-                    <div class="d-flex align-items-center">
-                        <h6 class="mb-0">Consumption by Children's Pool</h6>
-                        <button type="button"
-                            class="btn btn-icon-only btn-rounded btn-outline-secondary mb-0 ms-2 btn-sm d-flex
-                            align-items-center justify-content-center ms-auto"
-                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Lihat
-                            kelayakan kolam">
-                            <i class="fas fa-info"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="card-body p-3">
-                    <div class="row">
-                        <div class="col-5 text-center">
-                            <div class="chart">
-                                <canvas id="chart-consumption" class="chart-canvas" height="197"></canvas>
+        @foreach($devices as $deviceId => $deviceFriendlyName)
+            @php
+                $data = $datas[$deviceId];
+            @endphp
+            <div class="">
+                <div class="card m-2">
+                    <div class="card-header pb-0 p-3">
+                        <div class="d-flex align-items-center">
+                            <h6 class="mb-0">{{$deviceFriendlyName}}</h6>
+                            <div class="ms-auto"> <!-- Menempatkan elemen-elemen di sebelah kanan -->
+                                @foreach(\App\Models\AppSettings::$batterySensors as $sensor)
+                                    @if(isset($data['sensors'][$sensor]))
+                                        @php
+                                            // Ambil nilai persentase baterai dan tentukan warna berdasarkan kondisi
+                                            $valueBattery = intval($data['sensors'][$sensor]);
+                                            $color = '#30C873'; // Warna default: hijau
+                                            if($valueBattery < 20){
+                                                $color = '#FF0000'; // Warna: merah jika baterai kurang dari 20%
+                                            } else if($valueBattery < 50){
+                                                $color = '#DAA520'; // Warna: kuning jika baterai kurang dari 50%
+                                            }
+                                        @endphp
+                                        <span class="text-sm mb-0 ms-2" style="color: {{$color}};">
+                                            <i class="fas fa-battery-{{ $valueBattery < 20 ? 'empty' : ($valueBattery < 50 ? 'quarter' : 'full') }}"></i> {{ $valueBattery }}%
+                                        </span>
+                                    @endif
+                                @endforeach
                             </div>
-                            <h4 class="font-weight-bold mt-n8">
-                                <img src="{{ asset('images/good.jpg') }}" alt="baik">
-                                <h6 class="d-block text-sm">
-                                    <span class="highlight-background" style="background-color: #d2fcd2; display: inline-block; padding: 5px; border-radius: 5px;">
-                                        <span class="text-sm bold" style="color: #30C873;">Good</span>
-                                    </span>
-                                </h6>
-                            </h4>
+                            <button
+                                id="tooltip-{{$deviceId}}"
+                                type="button"
+                                class="btn btn-icon-only btn-rounded btn-outline-secondary mb-0 ms-2 btn-sm d-flex align-items-center justify-content-center"
+                                data-bs-toggle="tooltip" data-bs-placement="bottom">
+                                <i class="fas fa-info"></i>
+                            </button>
+                            <script>
+                                (() => {
+                                    // set tooltip title attribute as user time zone
+                                    let time = "{{$data['created_at']}}";
+                                    time = new Date(time);
+                                    // format to local date time
+                                    time = time.toLocaleString();
+                                    document.getElementById('tooltip-{{$deviceId}}').setAttribute('title', time);
+                                })();
+                            </script>
                         </div>
-                        <div class="col-7">
-                            <div class="table-responsive">
-                                <table class="table align-items-center mb-0">
-                                    <tbody>
-                                        <td>
-                                            <div class="d-flex px-2 py-0">
-                                                <span class="badge bg-success me-3"> </span>
 
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <h6 class="mb-0 text-sm">Temperature</h6>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="align-right text-end text-sm">
-                                            <span class="text-xs font-weight-bold">{{ $temperature['value'] }} {{ $temperature['unit'] }}</span>
-                                        </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-0">
-                                                    <span class="badge bg-success me-3"> </span>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">PH</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="align-right text-end text-sm">
-                                                <span class="text-xs font-weight-bold">{{ $ph['value'] }} {{ $ph['unit'] }}</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-0">
-                                                    <span class="badge bg-success me-3"> </span>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Salt</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="align-right text-end text-sm">
-                                                <span class="text-xs font-weight-bold">{{ $salt['value'] }} {{ $salt['unit'] }}</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-0">
-                                                    <span class="badge bg-success me-3"> </span>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Sanitation (ORP)</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="align-right text-end text-sm">
-                                                <span class="text-xs font-weight-bold">{{ $orp['value'] }} {{ $orp['unit'] }}</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-0">
-                                                    <span class="badge bg-success me-3"> </span>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Conductivity</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="align-right text-end text-sm">
-                                                <span class="text-xs font-weight-bold">{{ $conductivity['value'] }} {{ $conductivity['unit'] }}</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-0">
-                                                    <span class="badge bg-success me-3"> </span>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">TDS</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="align-right text-end text-sm">
-                                                <span class="text-xs font-weight-bold">{{ $tds['value'] }} {{ $tds['unit'] }}</span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                    </div>
+                    <div class="card-body p-3">
+                        <div class="row">
+                            <div class="col-5 text-center">
+                                <div class="chart">
+                                    <canvas id="chart-consumption" cslass="chart-canvas" height="197"></canvas>
+                                </div>
+
+                                <h4 class="font-weight-bold mt-n10">
+
+                                    {{-- @dd($device['scores']['ph']); --}}
+                                    @if($data['final_score'] > \App\Http\Controllers\StatusController::$finalScoreDisplay['green'])
+                                    <img src="{{ asset('images/green.png') }}" alt="baik" style="width: 70px; height: 70px; border-radius: 50%;">
+                                    <h6 class="d-block text-sm">
+                                        <span class="highlight-background" style="background-color: #d2fcd2; display: inline-block; padding: 5px; border-radius: 5px;">
+                                            <span class="text-sm bold" style="color: #30C873;">Good {{ intval($data['final_score'] * 100) }}%</span>
+                                        </span>
+                                    </h6>
+
+                                    @elseif($data['final_score'] > \App\Http\Controllers\StatusController::$finalScoreDisplay['yellow'])
+                                    <img src="{{ asset('images/yellow.png') }}" alt="waspada" style="width: 70px; height: 70px; border-radius: 50%;">
+                                    <h6 class="d-block text-sm">
+                                        <span class="highlight-background" style="background-color: #FFFF00; display: inline-block; padding: 5px; border-radius: 5px;">
+                                            <span class="text-sm" style="color: #DAA520;">Caution {{ intval($data['final_score'] * 100) }}%</span>
+                                        </span>
+                                    </h6>
+                                @else
+                                    <img src="{{ asset('images/red.png') }}" alt="buruk" style="width: 70px; height: 70px; border-radius: 50%;">
+                                    <h6 class="d-block text-sm">
+                                        <span class="highlight-background" style="background-color: #ffa1a1; display: inline-block; padding: 5px; border-radius: 5px;">
+                                            <span class="text-sm" style="color: #FF0000;">Bad {{ intval($data['final_score'] * 100) }}%</span>
+                                        </span>
+                                    </h6>
+                                @endif
+
+
+                                    {{-- {{ intval($device['final_score'] * 100) }}% --}}
+
+                                </h4>
                             </div>
+                            <div class="col-7">
+                                <div class="table-responsive">
+                                    <table class="table align-items-center mb-0">
+                                        <tbody>
+                                        @php
+                                            $dataPerColumn = array_fill(0, 3, []); // Inisialisasi array untuk setiap kolom
+                                            $columnCounter = 0;
+                                        @endphp
+
+                                        @foreach($data['formatted_sensors'] as $sensor => $state)
+                                            @php
+                                                // Periksa apakah sensor saat ini adalah bagian dari sensor baterai
+                                                if (in_array($sensor, \App\Models\AppSettings::$batterySensors)) {
+                                                    continue; // Lewati sensor baterai
+                                                }
+
+                                                // Menambahkan data ke dalam array sementara untuk setiap kolom
+                                                $dataPerColumn[$columnCounter][] = [
+                                                    'sensor' => $sensor,
+                                                    'state' => $state,
+
+                                                ];
+
+                                                // Pindah ke kolom berikutnya setelah mencapai 3 baris
+                                                if (count($dataPerColumn[$columnCounter]) == 3) {
+                                                    $columnCounter++;
+                                                }
+                                            @endphp
+                                        @endforeach
+
+                                        @for ($row = 0; $row < 3; $row++)
+                                            <tr>
+                                                @foreach($dataPerColumn as $column)
+                                                    @if(isset($column[$row]))
+                                                        <td>
+                                                            <div class="d-flex px-2 py-0">
+                                                                @php
+                                                                    $sensor = $column[$row]['sensor'];
+                                                                    $state = $column[$row]['state'];
+                                                                    $bg = '';
+                                                                    if(isset($data['scores'][$sensor])){
+                                                                        if($data['scores'][$sensor] > \App\Http\Controllers\StatusController::$parameterThresholdDisplay['green']){
+                                                                            $bg = 'bg-success';
+                                                                        } elseif($data['scores'][$sensor] > \App\Http\Controllers\StatusController::$parameterThresholdDisplay['yellow']){
+                                                                            $bg = 'bg-warning';
+                                                                        } else {
+                                                                            $bg = 'bg-danger';
+                                                                        }
+                                                                    }
+                                                                @endphp
+                                                                <span class="badge me-3 {{ $bg }}">
+                                                                </span>
+                                                                <div class="d-flex flex-column justify-content-center">
+                                                                    <h6 class="mb-0 text-sm">{{ $state['label'] }}</h6>
+                                                                    @if(config('app.env') != 'production')
+                                                                        <span
+                                                                            class="text-xs text-secondary">{{ $state['value'] }} {{ $state['unit'] }}
+                                                                            @if(isset($data['scores'][$sensor]))
+                                                                                ({{ intval($data['scores'][$sensor] * 100) }}
+                                                                                %)
+                                                                            @endif
+                                                                        </span>
+                                                                    @endif
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    @else
+                                                        <td></td> <!-- Jika tidak ada data, tambahkan sel kosong -->
+                                                    @endif
+                                                @endforeach
+                                            </tr>
+                                        @endfor
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        @endforeach
 
 
-    <div class="row mt-4">
-        <div class="col-lg-6 ms-auto">
-            <div class="card">
-                <div class="card-header pb-0 p-3">
-                    <div class="d-flex align-items-center">
-                        <h6 class="mb-0">Consumption by Jacuzzi</h6>
-                        <button type="button"
-                            class="btn btn-icon-only btn-rounded btn-outline-secondary mb-0 ms-2 btn-sm d-flex
-                            align-items-center justify-content-center ms-auto"
-                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Lihat
-                             kelayakan kolam">
-                            <i class="fas fa-info"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="card-body p-3">
-                    <div class="row">
-                        <div class="col-5 text-center">
-                            <div class="chart">
-                                <canvas id="chart-consumption" class="chart-canvas" height="197"></canvas>
-                            </div>
-                            <h4 class="font-weight-bold mt-n8 text-center">
-                                <img src="{{ asset('images/caution.png') }}" alt="caution">
-                                <h6 class="d-block text-sm">
-                                    <span class="highlight-background" style="background-color: #FFFF00; display: inline-block; padding: 5px; border-radius: 5px;">
-                                        <span class="text-sm" style="color: #DAA520;">Caution</span>
-                                    </span>
-                                </h6>
-                                {{-- <span class="d-block text-body text-sm" style="background-color: #FFFF00; color: #DAA520; border-radius: 5px; padding: 3px; max-width: 150px;  display: inline-block; text-align: center;">Caution</span> --}}
-                            </h4>
-                        </div>
-                        <div class="col-7">
-                            <div class="table-responsive">
-                                <table class="table align-items-center mb-0">
-                                    <tbody>
-                                        <td>
-                                            <div class="d-flex px-2 py-0">
-                                                <span class="badge bg-warning me-3"> </span>
+    </div>
 
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <h6 class="mb-0 text-sm">Temperature</h6>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="align-right text-end text-sm">
-                                            <span class="text-xs font-weight-bold">{{ $temperature['value'] }} {{ $temperature['unit'] }}</span>
-                                        </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-0">
-                                                    <span class="badge bg-warning me-3"> </span>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">PH</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="align-right text-end text-sm">
-                                                <span class="text-xs font-weight-bold">{{ $ph['value'] }} {{ $ph['unit'] }}</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-0">
-                                                    <span class="badge bg-success me-3"> </span>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Salt</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="align-right text-end text-sm">
-                                                <span class="text-xs font-weight-bold">{{ $salt['value'] }} {{ $salt['unit'] }}</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-0">
-                                                    <span class="badge bg-success me-3"> </span>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Sanitation (ORP)</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="align-right text-end text-sm">
-                                                <span class="text-xs font-weight-bold">{{ $orp['value'] }} {{ $orp['unit'] }}</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-0">
-                                                    <span class="badge bg-success me-3"> </span>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Conductivity</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="align-right text-end text-sm">
-                                                <span class="text-xs font-weight-bold">{{ $conductivity['value'] }} {{ $conductivity['unit'] }}</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-0">
-                                                    <span class="badge bg-success me-3"> </span>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">TDS</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="align-right text-end text-sm">
-                                                <span class="text-xs font-weight-bold">{{ $tds['value'] }} {{ $tds['unit'] }}</span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6 ms-auto">
-        </div>
-    </div>
-    <hr class="horizontal dark my-5">
-    <div class="row">
-        <!-- ruang kosong -->
-    </div>
 @endsection
 
 @push('js')
+
+<script>
+    // Fungsi untuk memuat ulang halaman setiap menit (60 * 1000 milidetik)
+    function autoReload() {
+        setTimeout(function() {
+            location.reload();
+        }, 30 * 60 * 1000); // 1 menit
+    }
+
+    // Panggil fungsi autoReload saat halaman dimuat
+    window.onload = autoReload;
+    </script>
     <script src="{{ URL::asset('assets/js/plugins/choices.min.js') }}"></script>
     <script src="{{ URL::asset('assets/js/plugins/countup.min.js') }}"></script>
     <script src="{{ URL::asset('assets/js/plugins/chartjs.min.js') }}"></script>
     <script src="{{ URL::asset('assets/js/plugins/round-slider.min.js') }}"></script>
     <script>
         // Rounded slider
-        const setValue = function(value, active) {
-            document.querySelectorAll("round-slider").forEach(function(el) {
+        const setValue = function (value, active) {
+            document.querySelectorAll("round-slider").forEach(function (el) {
                 if (el.value === undefined) return;
                 el.value = value;
             });
@@ -393,8 +213,8 @@
                 span.style.color = 'black';
         }
 
-        document.querySelectorAll("round-slider").forEach(function(el) {
-            el.addEventListener('value-changed', function(ev) {
+        document.querySelectorAll("round-slider").forEach(function (el) {
+            el.addEventListener('value-changed', function (ev) {
                 if (ev.detail.value !== undefined)
                     setValue(ev.detail.value, false);
                 else if (ev.detail.low !== undefined)
@@ -403,7 +223,7 @@
                     setHigh(ev.detail.high, false);
             });
 
-            el.addEventListener('value-changing', function(ev) {
+            el.addEventListener('value-changing', function (ev) {
                 if (ev.detail.value !== undefined)
                     setValue(ev.detail.value, true);
                 else if (ev.detail.low !== undefined)
@@ -545,7 +365,7 @@
                     backgroundColor: "#3A416F",
                     data: [150, 230, 380, 220, 420, 200, 70],
                     maxBarThickness: 6
-                }, ],
+                },],
             },
             options: {
                 responsive: true,

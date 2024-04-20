@@ -18444,8 +18444,8 @@ textarea.form-control-lg {
 
 .btn-primary:hover,
 .btn.bg-gradient-primary:hover {
-  background-color: #cb0c9f;
-  border-color: #cb0c9f;
+  background-color: #343267;
+  border-color: #343267;
 }
 .btn-primary .btn.bg-outline-primary,
 .btn.bg-gradient-primary .btn.bg-outline-primary {
@@ -19481,7 +19481,7 @@ label,
 }
 
 .bg-gradient-primary {
-  background-image: linear-gradient(310deg, #7928CA 0%, #FF0080 100%);
+  background-color: #344767;
 }
 
 .bg-gradient-secondary {
@@ -20969,6 +20969,7 @@ hr.horizontal.gray-light {
   width: 5px;
   border-radius: 1.5rem;
   background: rgba(58, 65, 111, 0.5);
+  display: none !important;
 }
 .navbar-vertical .navbar-nav .nav-item .collapse .nav .nav-item .nav-link.active,
 .navbar-vertical .navbar-nav .nav-item .collapsing .nav .nav-item .nav-link.active {

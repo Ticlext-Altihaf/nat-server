@@ -2,15 +2,12 @@
 
 @section('content')
     <main class="main-content  mt-0">
-        <div class="page-header align-items-start section-height-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('assets/img/curved-images/curved6.jpg');">
+        <div class="page-header align-items-start section-height-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('assets/img/curved-images/bg4.jpg');">
             <span class="mask bg-gradient-dark opacity-6"></span>
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-5 text-center mx-auto">
-                        <h1 class="text-white mb-2 mt-5">Welcome!</h1>
-                        <p class="text-lead text-white">
-                            Use these awesome forms to login or create new account in your project for free.
-                        </p>
+                        <h1 class="text-white mb-2 mt-5">Welcome to NATwave</h1>
                     </div>
                 </div>
             </div>
@@ -20,9 +17,9 @@
                 <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
                     <div class="card z-index-0">
                         <div class="card-header text-center pt-4">
-                            <h5>Register with</h5>
+                            <h5>Register</h5>
                         </div>
-                        <div class="row px-xl-5 px-sm-4 px-3">
+                        {{-- <div class="row px-xl-5 px-sm-4 px-3">
                             <div class="col-3 ms-auto px-1">
                                 <a class="btn btn-outline-light w-100" href="javascript:;">
                                     <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink32">
@@ -65,7 +62,7 @@
                                     or
                                 </p>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="card-body">
                             <form action="/register" method="POST" role="form text-start">
                                 @csrf

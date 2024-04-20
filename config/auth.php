@@ -107,5 +107,5 @@ return [
     */
 
     'password_timeout' => 10800,
-
+    'api_authorization' => env('API_AUTH', 'Rahasia'),
 ];

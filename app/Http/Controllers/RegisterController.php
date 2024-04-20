@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class RegisterController extends Controller
 {
@@ -31,12 +29,12 @@ class RegisterController extends Controller
                 'role_id' => $attributes['role_id'],
                 'first_name' => $attributes['name'],
                 'email' => $attributes['email'],
-                'password' => $attributes['password'],
+                'password' => Hash::make($attributes['password']),
             ]
         );
-        
+
         session()->flash('success', 'Your account has been created.');
-        Auth::login($insertUser); 
-        return view('dashboards/default');
+        Auth::login($insertUser);
+        return redirect('/');
     }
 }
