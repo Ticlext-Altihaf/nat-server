@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,13 +15,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            RoleSeeder::class,
-            UserSeeder::class,
-            TagsSeeder::class,
-            CategorySeeder::class,
-            ItemsManagementSeeder::class,
-            ItemTagsSeeder::class,
+        User::updateOrCreate([
+            'name' => 'Admin',
+            'email' => 'admin@localhost',
+            'password' => Hash::make('admin')
         ]);
     }
 }
