@@ -21,6 +21,7 @@
         "laravel/tinker": "^2.8",
         "maatwebsite/excel": "^3.1",
         "markrogoyski/math-php": "2.*",
+        "sentry/sentry-laravel": "^4.5",
         "tecnickcom/tcpdf": "^6.6"
     },
     "require-dev": {
