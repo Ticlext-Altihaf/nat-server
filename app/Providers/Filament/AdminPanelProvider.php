@@ -2,10 +2,13 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Pages\PoolDetail;
+use App\Models\Pool\StateLog;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Navigation\NavigationGroup;
+use Filament\Navigation\NavigationItem;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -22,7 +25,18 @@ class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
-
+        $devices = StateLog::getDevices();
+        // sort alphabetically
+        asort($devices);
+        foreach ($devices as $device => $friendly_name) {
+            $panel->navigationItems([
+                NavigationItem::make($friendly_name)
+                    ->icon(PoolDetail::getNavigationIcon())
+                    ->group(PoolDetail::getNavigationGroup())
+                    ->url(fn() => PoolDetail::getUrl(['device' => $device]))
+                    ->isActiveWhen(fn() => PoolDetail::getUrl(['device' => $device]) === request()->fullUrl())
+            ]);
+        }
         return $panel
             ->default()
             ->id('admin')
@@ -37,6 +51,10 @@ class AdminPanelProvider extends PanelProvider
                 Pages\Dashboard::class,
             ])
             ->navigationGroups([
+                'details' => NavigationGroup::make()
+                    ->label(fn() => __('Details'))
+                    ->collapsed()
+                    ->icon("heroicon-o-list-bullet"),
                 'settings' => NavigationGroup::make()
                     ->label(fn() => __('Settings'))
                     ->collapsed()

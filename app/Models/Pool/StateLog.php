@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+// Main model here
 /**
  * @mixin Builder
  */
@@ -56,8 +57,14 @@ class StateLog extends Model
     protected static array $cache = [];
     public static function getDevices(): array
     {
+        if (app()->runningInConsole()) return [];
         if (empty(self::$cache)) {
-            self::$cache = StateLog::withoutAppends()->distinct('device', 'friendly_name')
+            $last = StateLog::orderBy('id', 'desc')->first();
+            if (!$last) return [];
+            $lastId = $last->id;
+            self::$cache = StateLog::withoutAppends()
+                ->where('id', '>=', max(1, $lastId - 100))
+                ->distinct('device', 'friendly_name')
                 ->pluck('friendly_name', 'device')->toArray();
         }
         return self::$cache;
@@ -96,6 +103,7 @@ class StateLog extends Model
         $formattedSensors = [];
         foreach ($this->sensors as $sensor => $value) {
             $formattedSensors[$sensor] = WaterpoolController::formatSensor($sensor, $value);
+            $formattedSensors[$sensor]['label'] = $this->value('attributes')['friendly_name'] ?? $formattedSensors[$sensor]['label'];
             if (!is_array($formattedSensors[$sensor])) throw new \Exception('formatSensor must return array for sensor: ' . $sensor . ' value: ' . $value);
         }
 

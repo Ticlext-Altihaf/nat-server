@@ -228,6 +228,26 @@ class AppSettings extends Model
         return $result;
     }
 
+    public static array $cache = [];
+
+    public static function getS(string $key, mixed $default = null): mixed
+    {
+        if (app()->runningInConsole()) {
+            return $default;
+        }
+        if (isset(static::$cache[$key])) {
+            return static::$cache[$key];
+        }
+
+        $setting = static::where('key', $key)->first();
+        if ($setting) {
+            static::$cache[$key] = $setting->value;
+            return $setting->value;
+        }
+
+        return $default;
+    }
+
     // each pool has different profile
     public static function getPoolProfileParameter(): array
     {
