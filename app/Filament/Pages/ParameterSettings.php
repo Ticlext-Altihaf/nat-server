@@ -6,6 +6,6 @@ use Filament\Pages\Page;
 
 class ParameterSettings extends Page
 {
-    protected static ?string $navigationIcon = 'heroicon-o-cog';
+    protected static ?string $navigationGroup = 'settings';
     protected static string $view = 'filament.pages.parameter-settings';
 }

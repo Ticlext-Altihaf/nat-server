@@ -17,24 +17,7 @@
 
 ## Setup Device & Sensors
 
-- Open `.env`
-- `DEVICES_NAME` is the name of the device
-- `DEVICES_SENSORS` is the list of sensors
-- `DEVICES_BATTERY_SENSORS` is the list of sensors that will be displayed as battery
-- Entity must be prefixed by `sensor.`
-
-Example if you have 3 entities:
-
-- `sensor.natwave01_td`
-- `sensor.natwave02_ph`
-- `sensor.natwave03_td`
-
-the resulting `.env` will be:
-
-```env
-DEVICES_NAME="natwave01 natwave02 natwave03"
-DEVICES_SENSORS="td ph"
-```
+Setup on POST request
 
 ## Final Score Matrix
 

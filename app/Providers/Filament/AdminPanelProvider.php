@@ -5,6 +5,7 @@ namespace App\Providers\Filament;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\NavigationGroup;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -35,6 +36,17 @@ class AdminPanelProvider extends PanelProvider
             ->pages([
                 Pages\Dashboard::class,
             ])
+            ->navigationGroups([
+                'settings' => NavigationGroup::make()
+                    ->label(fn() => __('Settings'))
+                    ->collapsed()
+                    ->icon("heroicon-o-cog"),
+            ])
+            ->plugins([
+                \Hasnayeen\Themes\ThemesPlugin::make()->canViewThemesPage(fn() => false),
+                \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make()
+
+            ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->navigationItems([
             ])
@@ -50,6 +62,8 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+                \Hasnayeen\Themes\Http\Middleware\SetTheme::class
+
             ])
             ->authMiddleware([
                 Authenticate::class,
